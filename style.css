@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #f7f2f2; /*Coloca a cor no texto no link*/
+    text-decoration: none; /*tira a marcação do texto*/
+    transition: 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing:4px;
+}
+/*organiza o nav e dar cor*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    background: #23232e;
+    padding: 12px 5%;
+}
+
+/*organiza o bacground e coloca a imagem de fundo*/
+main {
+    background: url('./img/bar.jpg') no-repeat center center;
+    background-size: cover;
+    height: 93vh;
+}
+
+/*Nessa parte organizamos a posição da li na nav*/
+.nav-list {
+    list-style: none;
+    line-height: 0;
+    display: flex;
+}
+
+/*Aqui diz respeito a nossa ul*/
+.nav-list li {
+    display: inline-block;
+    padding: 10px;
+}
+.nav-list li a:hover {
+    color: rgb(0, 195,255);
+}
+
+.mobile-menu {
+    display: none;
+    cursor: pointer;
+}
+
+/*Criar o nosso menu hambuerger*/
+.mobile-menu div {
+    width: 32px;
+    height: 2px;
+    background: #fff;
+    margin: 8px;
+    transition: 0.3s;
+}
+
+/*RESPONSIVIDADE*/
+@media (max-width: 999px) {
+    header {
+        overflow: hidden;
+    }
+    .mobile-menu {
+        display: block;
+        cursor: pointer;
+        z-index: 10;
+    }
+    
+    .nav-list {
+        display: flex;
+        position:fixed;
+        top: 0;
+        right: 0;
+        width: 60vw;
+        height: 100%;
+        background-color: #0000008c;
+        flex-direction: column;
+        align-items:center;
+        justify-content: space-evenly;
+        transform: translateX(100%); 
+        transition: transform 0.5s ease-in;
+        
+    }
+   
+
+    .nav-list li {
+        margin: 10px 0;
+        opacity: 0;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
+
+    .nav-list.active {
+        transform: translateX(0);
+    }
+    
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+    }
+
+    .mobile-menu.active .line1 {
+        transform: rotate(-45deg) translate(-8px, 8px);
+    }
+    .mobile-menu.active .line2 {
+        opacity: 0;
+    }
+    .mobile-menu.active .line3 {
+        transform: rotate(45deg) translate(-5px, -7px);
+    }
